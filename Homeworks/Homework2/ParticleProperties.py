@@ -80,6 +80,17 @@ def ParticleInfo(filename,ParticleType,ParticleNumber):
 mag_dist,mag_vel,mass= ParticleInfo("MW_000.txt",2.0,99)
 
 
+# In[97]:
+
+
+#answers for the code above
+
+#The 3D Distance: 4.245 kpc
+#The 3D Velocity: 312.135 km / s
+#The Mass: 10000000.0 solMass
+#The Distance in LightYears: 13845.338 lyr
+
+
 # In[ ]:
 
 
