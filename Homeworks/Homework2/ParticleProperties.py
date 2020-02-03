@@ -1,18 +1,35 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[23]:
+# In[1]:
 
 
+#Homework 2
+#Due 1/30/20
+#Mackenzie James
+
+#import modules
 import numpy as np
 import astropy.units as u
 from ReadFile import Read
 
 
-# In[93]:
+# In[4]:
 
+
+#(all comments before def added 2/3)
+# Define a function that takes the desired particle type
+# and particle number, then prints the 3D position, velocity, and mass
 
 def ParticleInfo(filename,ParticleType,ParticleNumber):
+
+#inputs: 
+    # particle type: Halo = 1.0, Disk = 2.0, Bulge = 3.0
+    # Particle number (in this HW example 100)
+    # file name (in this HW example "MW_000.txt")
+#Returns:
+    #Magnitude of 3D position and velocity vectors
+    #Mass 
     
     #reading in the return values from ReadFile code (part 2 of HW)
     time,total,data= Read(filename)
@@ -50,7 +67,7 @@ def ParticleInfo(filename,ParticleType,ParticleNumber):
     mag_vel_3 = np.around(mag_vel,3)
     
     #3. Finding the Specific Mass Value
-    mass_particle = mass_new[ParticleNumber]*u.Msun*10e10
+    mass_particle = mass_new[ParticleNumber]*u.Msun*1e10 (#corrected 2/3, changed order of magnitude so 1e10 instead of 10e10)
     #round value to 3 decimal places
     mass_particle_3 = np.around(mass_particle,3)
     
@@ -71,7 +88,7 @@ def ParticleInfo(filename,ParticleType,ParticleNumber):
 
 # For part 4 of this HW I'll be calculating the 3D distance, 3D velocity, mass. Additionally the 3D distance will be given in kpc then converted to light years
 
-# In[95]:
+# In[5]:
 
 
 #prints out values for 100 particle, use index 99 because particles 
@@ -80,7 +97,7 @@ def ParticleInfo(filename,ParticleType,ParticleNumber):
 mag_dist,mag_vel,mass= ParticleInfo("MW_000.txt",2.0,99)
 
 
-# In[97]:
+# In[6]:
 
 
 #answers for the code above
