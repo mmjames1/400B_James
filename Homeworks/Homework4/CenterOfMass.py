@@ -15,7 +15,7 @@ import astropy.units as u
 import astropy.table as tbl
 
 
-# In[77]:
+# In[2]:
 
 
 class CenterOfMass:
@@ -128,9 +128,14 @@ class CenterOfMass:
             Rmax = Rmax/2.0
             
             #change the frame of reference to the new COM calcuated
-            Xnew = x2-Xcom2
-            Ynew = y2-Ycom2
-            Znew = z2-Zcom2
+            
+            ###Correction 2/29: changing Xnew=x2-Xcom2 to Xnew=self.x-Xcom2
+            ###from Prof. Besla's corrections/solutions. This will now select the 
+            ###correct particles
+            
+            Xnew = self.x-Xcom2
+            Ynew = self.y-Ycom2
+            Znew = self.z-Zcom2
             #computing the new magnitude of the vector from new components
             Rnew = np.sqrt((Xnew**2)+(Ynew**2)+(Znew**2))
             
@@ -194,7 +199,7 @@ class CenterOfMass:
 
 # ## Question 6, Testing the Code.
 
-# In[81]:
+# In[3]:
 
 
 #finding the COM Position and Velocity Vector for MW, M31, and M33
@@ -221,7 +226,7 @@ print("M33 COM Position:",M33_COMP)
 print("M33 COM Velocity:",M33_COMV)
 
 
-# In[85]:
+# In[4]:
 
 
 #What is the magnitude of current separation and velocity of MW and M31?
@@ -243,8 +248,8 @@ print("current velocity difference between Milky way and M31 is:",velocity)
 
 
 # Code output: 
-# current separation between the Milky way and M31 is: 770.138944671674 kpc
-# current velocity difference between Milky way and M31 is: 116.69076141666056 km / s
+# current separation between the Milky way and M31 is: 769.0 kpc
+# current velocity difference between Milky way and M31 is: 118.0 km/ s
 
 # In[87]:
 
@@ -268,9 +273,9 @@ print("current velocity difference between M31 and M33 is:",velocity2)
 
 
 # Code output: 
-# current separation between the M31 and M33 is: 201.08279712595998 kpc
+# current separation between the M31 and M33 is: 201.0 kpc
 # 
-# current velocity difference between M31 and M33 is: 199.36966720140757 km / s
+# current velocity difference between M31 and M33 is: 199.0 km / s
 
 # Given that M31 and MW are about to merge, why is the iterative process to determine the COM important?
 # 
