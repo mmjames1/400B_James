@@ -1,0 +1,66 @@
+\documentclass[twocolumn]{aastex63}
+\usepackage[utf8]{inputenc}
+\graphicspath{{./}{figures/}}
+\begin{document}
+
+\title{The Distribution of Stellar Material in the Milky Way + M31 Merger and how it relates to Galactic Classification}
+
+\author{Mackenzie M. James}
+\affiliation{Steward Observatory, The University of Arizona}
+
+\section{Introduction}
+
+Currently our galaxy, the Milky Way, and M31 are heading towards a head on collision which will result in the merger of the two galaxies in about 4 Gyr \citep{2012ApJ...753....9V}. Since these galaxies are of similar size, it will be considered a major merger between the two. The Milky Way and M31 also fall into the "green valley" \citep{2011ApJ...736...84M}, which are redder spiral galaxies. Because the galaxy is already on it's way to "red and dead", there is less gas material in both of the disks. Because of this lack of gaseous material, I'll be looking at the stellar merger remnant between M31 and our own galaxy. 
+
+
+\subsection{Our current understanding of galaxy mergers}
+Colloquially, elliptical galaxies are referred to as "early type" galaxies while the spiral galaxies are known as "late type". This is due to Edwin Hubble and other early astronomer's assumptions that the elliptical galaxies formed first and later turned into the spiral disks. Astronomers today know this not to be true, and that spiral and elliptical galaxies will grow and evolve in different ways. Not only that, but there are current theories that state that a merger between two spirals may result in an elliptical \citep{1992ARA&A..30..705B}, one of the ways that these types of galaxies can grow. 
+
+\subsection{Why does the stellar material matter?}
+The Milky Way and M31 galaxies are alike in several ways; they both are of a similar mass, and they both are spiral galaxies that uncharacteristically have a lower amount of gas mass \citep{2011ApJ...736...84M}. This means, when they collide it will be considered a "dry" merger and that the stellar material will be very important. Figure 1 to the side details the differences between a merger with gas, and a merger like the Milky Way and M31. 
+
+%adding figure here
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=5]{MergerDrawing.jpg}
+    \caption{Figure from \cite{2011ApJ...736...84M}, details the difference between what would be the traditional idea of a merger and what it would look like in a merger with significantly less gas}
+    \label{fig:my_label}
+\end{figure}
+
+By simulating the dry merger between the Milky Way and M31, it will help to see what kind of role these types of galaxies play in galactic evolution. This will aid in developing previous theories on how mergers relate between the evolution of spiral and elliptical galaxies, as well as visualize the remnant in order to this merger's place on the Hubble Tuning Fork. 
+
+%% finish this still
+\subsection{Open questions in the field}
+While astronomers have realized that the classifications of the past are no longer adequate to describe the intricacies of galaxy evolution, there are still lots of unknowns when it comes to the mergers of galaxies and how they a role in galactic evolution. For example, there is still discussion on if these elliptical galaxies are built up through wet or dry mergers \citep{2013ASPC..477...47D}. There is also the discussion of what this merger of our galaxy will even look like, if it's more elliptical or disk shaped in the end. From this, I am looking to dive deeper into the questions of \textit{What will the merger of our galaxies result in?} and \textit{How does the stellar material from each gas-poor spiral interact with each other?}
+
+\section{Proposal}
+\subsection{Open Questions Addressed}
+For this project I will be focusing on the distribution of the stellar particles in the Milky Way and M31 merger. I will first be looking at the density and Sersic profiles of the whole merger before focusing on the distribution of the individual particles from each galaxy. Using both of these pieces of information, I will then determine whether this merger will create an elliptical galaxy or something that is closer to a lenticular classification.
+
+\subsection{Code}
+In order to answer these questions, I will be coding a simulation as follows:
+\begin{itemize}
+ \item This simulation will utilize data from \cite{2012ApJ...753....9V}
+ \item The piece of information that I will need is the snapshots for the time that corresponds with the merger of the two galaxies. I will use the code from Homework 6 in order to obtain these snapshots for use in the rest of the code. 
+ \item The first step in the simulation will be to find the density profiles using \textit{MassProfile.py}. This will create the mass density of the merger, which I will then compare to the elliptical and spiral form of the Sersic profile. This script will be based off of the work done in Lab 6. 
+ \item The next part of this simulation will be to look at the specific stellar particle densities, when the merger is complete and how this continues to evolve after the merger. For this I will be using \textit{CenterOfMass.py} in order to plot the position of the Milky Way and M31 stellar mass in the merger, identified with different markers. I will do this for each snapshot after the merger, to see how the distribution of these particles will change with time. From this, I will write a script that makes the snapshot distributions into a movie so that it will aid in the visualization of how the stellar particles from both galaxies change over time after the merger.
+ \item The last part of this simulation will be to see what the final shape of the remnant will be. This will be done via the code created in class in Lab 6, this time fitting both equations of the Sersic profile (Figure 2). From there, I will also fit the profile of the remnant from the first step. Again, I will be doing this at different snap shots and creating a movie so that I will be able to see how the profile changes over time. Specifically, if it starts trending towards one form or another. This, combined with the visual component should answer the question on how the stellar profile looks after the merger and how it relates to the classification of the galaxy. 
+\end{itemize}
+
+\subsection{Sample Figure}
+See Figure 2 below the references section.
+
+\subsection{Hypothesis}
+From this simulation, I am expecting to find a few different results. First, since the stellar mass of M31 is greater than that of our Milky Way, I am expecting it to dominate slightly in the final merger in the beginning. As the movie plays over time, I anticipate seeing that that the stellar masses of the two galaxies will become more homogeneous over time after the merger is complete and as the material orbits around a new galactic center. Second, I am looking at the profile in order to determine it's final galactic classification. Again, I am expecting this to change over time. Since it is two disk galaxies merging, I am looking to see the profile be more similar to the disk profile in order to showcase a more lenticular morphology. Since the galaxies were already initially more gas-poor, I expect that over time the merger will lose gas via star formation and the profile will start to trend more towards the elliptical Sersic profile. 
+
+\bibliography{references}{}
+\bibliographystyle{aasjournal}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{SamplePlotProject.jpg}
+    \caption{Details a sample plot showing the differences in the brightness as a function of radius for both an elliptical and a spiral galaxy. The arrow is detailing the movement of how I think the merger will evolve over time (not starting right at a spiral profile, but above assuming a lenticular morphology (black line)) and that it will eventually trend towards a spiral. The n values for the Sersic profile taken from \citep{2001MNRAS.326..869T}}
+    \label{fig:my_label}
+\end{figure}
+
+\end{document}
